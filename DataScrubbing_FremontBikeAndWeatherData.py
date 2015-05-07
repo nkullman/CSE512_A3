@@ -10,9 +10,7 @@ import pylab
 from pandas import *
 from pylab import *
 
-
 # In[104]:
-
 # Read in raw weather CSV
 fwd = read_csv("FremontWeatherData_Daily_raw.csv")
 
@@ -21,7 +19,6 @@ fwd = read_csv("FremontWeatherData_Daily_raw.csv")
 
 # Eliminate unnecessary columns: index ('unnamed...') and 'PDT'
 fwd = fwd.drop(["Unnamed: 0", "PDT"], axis=1)
-
 
 # In[106]:
 
@@ -93,6 +90,7 @@ fbd["IsWeekend"] = fbd["Date"].map(lambda x: x.weekday() >= 5)
 # Formatting of bike data complete.
 # Dataframes ready for merge.
 fwabd = merge(fbd, fwd, on = "Date", how = "inner")
+
 
 
 # In[116]:
