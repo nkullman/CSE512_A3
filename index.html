@@ -331,7 +331,12 @@ d3.csv("fremont.csv", function(thedata) //load data
 			.attr("class", "line nbday")
 			.attr("d", function(d) { return line(d.values); })
 			.on("mouseover", moused_over)
-			.on("mouseout", moused_out);
+			.on("mouseout", moused_out)
+			.on("click", doOnClick);
+			
+	function doOnClick(d) {
+    	window.open("http://www.wolframalpha.com/input/?i=" + d.key + "+seattle%2C+wa");
+ 	}
 	
 	// draw all SB day lines
 	var sbday = viz_alldays.selectAll(".sbday")
@@ -341,7 +346,8 @@ d3.csv("fremont.csv", function(thedata) //load data
 			.attr("class", "line sbday")
 			.attr("d", function(d) { return line(d.values); })
 			.on("mouseover", moused_over)
-			.on("mouseout", moused_out);
+			.on("mouseout", moused_out)
+			.on("click", doOnClick);
 	 
 	 // draw line for NB average
 	 var nbavgline = viz_agg.append("path")
@@ -470,7 +476,8 @@ d3.csv("fremont.csv", function(thedata) //load data
 			.attr("class", "line nbday")
 			.attr("d", function(d) { return line(d.values); })
 			.on("mouseover", moused_over)
-			.on("mouseout", moused_out);
+			.on("mouseout", moused_out)
+			.on("click", doOnClick);
 		//take care of outgoing nb lines - delete them
 		nblines.exit()
 			.transition()
@@ -491,7 +498,8 @@ d3.csv("fremont.csv", function(thedata) //load data
 			.attr("class", "line sbday")
 			.attr("d", function(d) { return line(d.values); })
 			.on("mouseover", moused_over)
-			.on("mouseout", moused_out);
+			.on("mouseout", moused_out)
+			.on("click", doOnClick);
 		//take care of outgoing sb lines - delete them
 		sblines.exit()
 			.transition()
